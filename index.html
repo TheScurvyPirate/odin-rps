@@ -17,5 +17,30 @@
                 ? "paper"
                 : "scissors";
         }
+
+        /**
+        * uses player and computer input to play a round of rock, paper, scissors.
+        * 
+        * compares the given choices to determine the winner, and then returns the victor (or declares a tie)
+        */
+        function playRound(playerSelection, computerSelection) {
+            // convert inputs to lowercase to make comparison easier
+            const pChoice = playerSelection.toLowerCase();
+            const cChoice = computerSelection.toLowerCase();
+
+            /** 
+            * first, determine if there was a tie. next, see if the player won.
+            * if the player didn't win, we can assume the computer secured victory.
+            * now, we return the result of the round.
+            */
+            return (pChoice === cChoice)
+            ? "tie"
+            : (
+                (pChoice === "rock" && cChoice === "scissors") ||
+                (pChoice === "scissors" && cChoice === "paper") ||
+                (pChoice === "paper" && cChoice === "rock")
+            ) ? "player"
+            : "computer";
+        }
     </script>
 </html>
