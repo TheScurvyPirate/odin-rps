@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
     <script>
+        /**
+        * determines the choice the computer will make in RPS.
+        *
+        * generates a random number, and then returns one of ["rock", "paper", "scissors"]
+        */
         function computerPlay() {
+            // generate a random number between 0 and 2
             const computerChoice = Math.floor(Math.random() * 3);
 
+            // determine what choice the computer "makes" based on what number is generated and return it
             return computerChoice === 0
                 ? "rock"
                 : computerChoice === 1
