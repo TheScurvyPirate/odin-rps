@@ -19,28 +19,65 @@
         }
 
         /**
-        * uses player and computer input to play a round of rock, paper, scissors.
+        * the main game loop for my implementation of rock paper scissors
         * 
-        * compares the given choices to determine the winner, and then returns the victor (or declares a tie)
+        * asks for user input and generates a computer choice 5 times, then stops.
         */
-        function playRound(playerSelection, computerSelection) {
-            // convert inputs to lowercase to make comparison easier
-            const pChoice = playerSelection.toLowerCase();
-            const cChoice = computerSelection.toLowerCase();
+        function game() {
+            let playerWins = 0;
+            let computerWins = 0;
 
-            /** 
-            * first, determine if there was a tie. next, see if the player won.
-            * if the player didn't win, we can assume the computer secured victory.
-            * now, we return the result of the round.
+            /**
+            * uses player and computer input to play a round of rock, paper, scissors.
+            * 
+            * compares the given choices to determine the winner, and then returns the victor (or declares a tie)
             */
-            return (pChoice === cChoice)
-            ? "tie"
-            : (
-                (pChoice === "rock" && cChoice === "scissors") ||
-                (pChoice === "scissors" && cChoice === "paper") ||
-                (pChoice === "paper" && cChoice === "rock")
-            ) ? "player"
-            : "computer";
+            function playRound(playerSelection, computerSelection) {
+                // convert inputs to lowercase to make comparison easier
+                const pChoice = playerSelection.toLowerCase();
+                const cChoice = computerSelection.toLowerCase();
+    
+                /** 
+                * first, determine if there was a tie. next, see if the player won.
+                * if the player didn't win, we can assume the computer secured victory.
+                * now, we return the result of the round.
+                */
+                return (pChoice === cChoice)
+                ? "tie"
+                : (
+                    (pChoice === "rock" && cChoice === "scissors") ||
+                    (pChoice === "scissors" && cChoice === "paper") ||
+                    (pChoice === "paper" && cChoice === "rock")
+                ) ? "player"
+                : "computer";
+            }
+
+            // play the game 5 times
+            for(let round = 0; round < 5; round++) {
+                // ask the user for their choice, generate the computer's
+                let playerOption = prompt("Rock, paper, or scissors?");
+                let computerOption = computerPlay();
+
+                // determine the outcome of the round
+                let victor = playRound(playerOption, computerOption);
+
+                // figure out what to display, and which score to increase
+                if(victor === "tie") {
+                    console.log('The round was a tie! Try again.');
+                } else if (victor === "player") {
+                    playerWins++;
+                    console.log('You win this round!');
+                } else {
+                    computerWins++;
+                    console.log('The computer wins this round.');
+                }
+
+                // log the current scores
+                console.log(`You: ${playerWins} | Computer: ${computerWins}`);
+            }
+
+            // log the result of the game -- declaring a tie if the number of rounds won is equal.
+            console.log(playerWins === computerWins ? "The game was a tie!" : `The winner is... the ${playerWins > computerWins ? 'player' : 'computer'}!`);
         }
     </script>
 </html>
