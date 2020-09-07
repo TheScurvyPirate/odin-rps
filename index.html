@@ -43,13 +43,13 @@
                 * now, we return the result of the round.
                 */
                 return (pChoice === cChoice)
-                ? "tie"
+                ? "The round is a tie!"
                 : (
                     (pChoice === "rock" && cChoice === "scissors") ||
                     (pChoice === "scissors" && cChoice === "paper") ||
                     (pChoice === "paper" && cChoice === "rock")
-                ) ? "player"
-                : "computer";
+                ) ? "The player wins the round!"
+                : "The computer wins the round!";
             }
 
             // play the game 5 times
@@ -61,19 +61,15 @@
                 // determine the outcome of the round
                 let victor = playRound(playerOption, computerOption);
 
-                // figure out what to display, and which score to increase
-                if(victor === "tie") {
-                    console.log('The round was a tie! Try again.');
-                } else if (victor === "player") {
+                // determine which score to increase
+                if (victor.match(/player/i)) {
                     playerWins++;
-                    console.log('You win this round!');
-                } else {
+                } else if(victor.match(/computer/i)) {
                     computerWins++;
-                    console.log('The computer wins this round.');
                 }
 
-                // log the current scores
-                console.log(`You: ${playerWins} | Computer: ${computerWins}`);
+                // log the current scores and the result of the round
+                console.log(`${victor}\nYou: ${playerWins} | Computer: ${computerWins}`);
             }
 
             // log the result of the game -- declaring a tie if the number of rounds won is equal.
