@@ -2,14 +2,23 @@
 <html>
     <head>
         <title>Rock Paper Scissors</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700" rel="stylesheet"> 
         <link href="styles/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
             <div class="btn-container">
-                <button class="btn" id="rock" tabindex="1">ROCK</button>
-                <button class="btn" id="paper" tabindex="2">PAPER</button>
-                <button class="btn" id="scissors" tabindex="3">SCISSORS</button>
+                <button class="btn player-choice" id="rock" tabindex="1">Rock</button>
+                <button class="btn player-choice" id="paper" tabindex="2">Paper</button>
+                <button class="btn player-choice" id="scissors" tabindex="3">Scissors</button>
+            </div>
+            <div class="score-container">
+                <div class="score-header">
+                    <h5>Player</h5>
+                    <h5>Computer</h5>
+                    <p class="score player">0</p>
+                    <p class="score computer">0</p>
+                </div>
             </div>
         </div>
     </body>
