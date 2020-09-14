@@ -12,18 +12,24 @@
             <p>First to reach 5 points wins!</p>
             <button class="btn play">Play</button>
         </div>
-        <div class="container">
+        <div class="container game">
+            <h3>Rock, paper, scissors!</h3>
             <div class="btn-container">
                 <button class="btn player-choice" id="rock" tabindex="1">Rock</button>
                 <button class="btn player-choice" id="paper" tabindex="2">Paper</button>
                 <button class="btn player-choice" id="scissors" tabindex="3">Scissors</button>
             </div>
+            <p class="results"></p>
             <div class="score-container">
                 <div class="score-header">
-                    <h5>Player</h5>
-                    <h5>Computer</h5>
-                    <p class="score player">0</p>
-                    <p class="score computer">0</p>
+                    <div class="scorecard">
+                        <h5>Player</h5>
+                        <p class="score player">0</p>
+                    </div>
+                    <div class="scorecard">
+                        <h5>Computer</h5>
+                        <p class="score computer">0</p>
+                    </div>
                 </div>
             </div>
         </div>
