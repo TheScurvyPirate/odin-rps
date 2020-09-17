@@ -111,9 +111,17 @@
             resultParagraph.textContent = '';
         }
 
+        function startGame(e) {
+            playerChoiceButtons.forEach(btn => btn.removeAttribute('disabled'));
+
+            fadeOutSourceDiv(e);
+        }
+
         function endGame() {
             finalPlayerScore.textContent = playerScore.textContent;
             finalComputerScore.textContent = computerScore.textContent;
+
+            playerChoiceButtons.forEach(btn => btn.toggleAttribute('disabled'));
 
             fadeOutGameDiv();
         }
@@ -158,7 +166,7 @@
                 : "scissors";
         }
 
-        playGameButtons.forEach(btn => btn.addEventListener('click', fadeOutSourceDiv));
+        playGameButtons.forEach(btn => btn.addEventListener('click', startGame));
         playGameButtons.forEach(btn => btn.parentElement.addEventListener('animationend', fadeInGameDiv));
         document.querySelector('.container.game').addEventListener('animationend', fadeInGameOverDiv);
         document.querySelector('.container.game-over').addEventListener('animationend', resetScoresAndResults);
